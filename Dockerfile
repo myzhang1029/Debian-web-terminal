@@ -18,6 +18,7 @@ RUN echo 'deb	ALL = (ALL:ALL) ALL' >/etc/sudoers.d/deb
 RUN sudo -EHudeb sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 
 # Install butterfly terminal
+RUN echo 'root:root' | chpasswd
 RUN pip install butterfly && pip install libsass
 
 EXPOSE 2233
