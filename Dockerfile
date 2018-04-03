@@ -19,8 +19,9 @@ RUN sudo -EHudeb sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh
 
 # Install butterfly terminal
 RUN echo 'root:root' | chpasswd
-RUN pip install butterfly && pip install libsass
-
+RUN pip install butterfly
+RUN pip install libsass
+COPY ["butterfly.conf", "/etc/butterfly/butterfly.conf"]
 EXPOSE 2233
 
-CMD  ["butterfly.server.py", "--port=2233", "--unsecure", "--host=0.0.0.0"]
+CMD  ["butterfly.server.py"]
