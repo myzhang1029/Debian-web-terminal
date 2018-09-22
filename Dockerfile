@@ -2,10 +2,10 @@
 FROM       debian:latest
 MAINTAINER Zhang Maiyun "https://github.com/myzhang1029"
 
-RUN echo "deb http://mirrors.163.com/debian stretch main contrib non-free" > /etc/apt/sources.list
+RUN echo "deb http://mirrors.ustc.edu.cn/debian stretch main contrib non-free" > /etc/apt/sources.list
 RUN apt-get update
 
-RUN apt-get install -y build-essential wget git vim sudo libreadline-dev zsh python-setuptools python-dev python-pip libffi-dev libssl-dev ssh-client && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get install -y build-essential cmake zsh wget git vim sudo libreadline-dev python-setuptools python-dev python-pip libncurses-dev libffi-dev libssl-dev ssh-client && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Add user deb
 RUN mkdir /home/deb
